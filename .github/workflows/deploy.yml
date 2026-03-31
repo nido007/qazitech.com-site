@@ -1,0 +1,34 @@
+name: Deploy Qazitech Static Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy files to Oracle VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.ORACLE_HOST }}
+          username: ${{ secrets.ORACLE_USER }}
+          key: ${{ secrets.ORACLE_SSH_KEY }}
+          source: "./*"
+          target: ${{ secrets.ORACLE_TARGET_DIR }}
+          strip_components: 0
+
+      - name: Set file permissions on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.ORACLE_HOST }}
+          username: ${{ secrets.ORACLE_USER }}
+          key: ${{ secrets.ORACLE_SSH_KEY }}
+          script: |
+            chmod -R 755 ${{ secrets.ORACLE_TARGET_DIR }}
+            find ${{ secrets.ORACLE_TARGET_DIR }} -type f -exec chmod 644 {} \;
