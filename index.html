@@ -958,9 +958,7 @@ h1 { animation-delay: .2s; }
       <span class="section-label">Get In Touch</span>
       <h2>Let's talk about<br>your project</h2>
       <br>
-      <form class="contact-form"
-      action="https://formspree.io/f/xwvwbzwe"
-      method="POST">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xwvwbzwe"></form>
         <div class="form-row">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Email address" required>
@@ -976,6 +974,33 @@ h1 { animation-delay: .2s; }
           <option>Something else</option>
         </select>
         <textarea name="message" placeholder="Tell us a bit about your project or business..."></textarea>
+        <div id="form-success" style="
+  display:none;
+  padding:14px 18px;
+  background:rgba(20,184,166,0.1);
+  border:1px solid rgba(20,184,166,0.3);
+  border-radius:8px;
+  color:#5DCAA5;
+  font-size:13px;
+  margin-bottom:4px;
+  text-align:center;
+">
+  ✓ Message sent! We'll be in touch within 24 hours.
+</div>
+
+<div id="form-error" style="
+  display:none;
+  padding:14px 18px;
+  background:rgba(248,113,113,0.1);
+  border:1px solid rgba(248,113,113,0.3);
+  border-radius:8px;
+  color:#F87171;
+  font-size:13px;
+  margin-bottom:4px;
+  text-align:center;
+">
+  Something went wrong. Please email ping@qazitech.com directly.
+</div>
         <button type="submit" class="btn-primary" style="width:100%;text-align:center;font-size:15px;padding:16px">Send Message →</button>
       </form>
     </div>
