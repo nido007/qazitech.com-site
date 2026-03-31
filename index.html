@@ -958,13 +958,15 @@ h1 { animation-delay: .2s; }
       <span class="section-label">Get In Touch</span>
       <h2>Let's talk about<br>your project</h2>
       <br>
-      <form class="contact-form" onsubmit="return false">
+      <form class="contact-form"
+      action="https://formspree.io/f/xwvwbzwe"
+      method="POST">
         <div class="form-row">
-          <input type="text" placeholder="Your name" required>
-          <input type="email" placeholder="Email address" required>
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Email address" required>
         </div>
-        <input type="text" placeholder="Company name (optional)">
-        <select>
+        <input type="text" name="company" placeholder="Company name (optional)">
+        <select name="service"> 
           <option value="" disabled selected>What do you need help with?</option>
           <option>Cloud Infrastructure / Hosting</option>
           <option>DevOps & CI/CD Pipeline</option>
@@ -973,7 +975,7 @@ h1 { animation-delay: .2s; }
           <option>Managed Monthly Support</option>
           <option>Something else</option>
         </select>
-        <textarea placeholder="Tell us a bit about your project or business..."></textarea>
+        <textarea name="message" placeholder="Tell us a bit about your project or business..."></textarea>
         <button type="submit" class="btn-primary" style="width:100%;text-align:center;font-size:15px;padding:16px">Send Message →</button>
       </form>
     </div>
@@ -987,7 +989,7 @@ h1 { animation-delay: .2s; }
           </div>
           <div>
             <h4>Email</h4>
-            <p><a href="mailto:hello@qazitech.com">ping@qazitech.com</a></p>
+            <p><a href="mailto:ping@qazitech.com">ping@qazitech.com</a></p>
           </div>
         </div>
         <div class="contact-item">
