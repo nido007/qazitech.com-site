@@ -29,6 +29,7 @@ jobs:
           host: ${{ secrets.ORACLE_HOST }}
           username: ${{ secrets.ORACLE_USER }}
           key: ${{ secrets.ORACLE_SSH_KEY }}
+          port: 22
           script: |
             chmod -R 755 ${{ secrets.ORACLE_TARGET_DIR }}
             find ${{ secrets.ORACLE_TARGET_DIR }} -type f -exec chmod 644 {} \;
